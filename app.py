@@ -1,4 +1,7 @@
 import streamlit as st
+password = st.text_input("パスワードを入力してください", type="password")
+if password != st.secrets.get("APP_PASSWORD", ""):
+    st.stop()
 import pandas as pd
 import requests
 from urllib.parse import urlencode
