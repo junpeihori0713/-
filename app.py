@@ -1,4 +1,7 @@
 import streamlit as st
+password = st.text_input("パスワードを入力してください", type="password")
+if password != st.secrets.get("APP_PASSWORD", ""):
+    st.stop()
 import pandas as pd
 import requests
 from urllib.parse import urlencode
@@ -146,7 +149,7 @@ if "access_token" not in st.session_state:
     }
     auth_link = f"{AUTH_URL}?{urlencode(auth_params)}"
     st.markdown(
-        f'<a href="{auth_link}" target="_self" style="display:inline-block;padding:0.5rem 1.5rem;background-color:#1A56DB;color:white;border-radius:8px;text-decoration:none;font-size:1rem;">🔑 freeeにログイン</a>',
+        f'<a href="{auth_link}" target="_blank" style="display:inline-block;padding:0.5rem 1.5rem;background-color:#1A56DB;color:white;border-radius:8px;text-decoration:none;font-size:1rem;">🔑 freeeにログイン</a>',
         unsafe_allow_html=True
     )
     st.stop()
