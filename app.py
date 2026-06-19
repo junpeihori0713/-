@@ -7,8 +7,8 @@ import os
 import json
 from dotenv import load_dotenv
 
-st.set_page_config(page_title="請求書、秒で出す！！！", page_icon="🚀")
-st.title("🚀 請求書、秒で出す！！！")
+st.set_page_config(page_title="請求書作成効率化", page_icon="🚀")
+st.title("🚀 請求書作成効率化")
 
 st.markdown("""
 <style>
@@ -36,7 +36,7 @@ AUTH_URL = "https://accounts.secure.freee.co.jp/public_api/authorize"
 TOKEN_URL = "https://accounts.secure.freee.co.jp/public_api/token"
 API_BASE = "https://api.freee.co.jp/api/1"
 API_BASE_IV = "https://api.freee.co.jp/iv"
-REDIRECT_URI = "http://localhost:8501"
+REDIRECT_URI = os.environ.get("REDIRECT_URI", "http://localhost:8501")
 TOKEN_FILE = os.path.join(os.path.expanduser("~"), ".freee_invoice_token.json")
 
 # --- .envから認証情報を読み込む ---
