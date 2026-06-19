@@ -41,9 +41,8 @@ TOKEN_FILE = os.path.join(os.path.expanduser("~"), ".freee_invoice_token.json")
 
 # --- .envから認証情報を読み込む ---
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
-CLIENT_ID = os.getenv("CLIENT_ID", "")
-CLIENT_SECRET = os.getenv("CLIENT_SECRET", "")
-
+CLIENT_ID = st.secrets.get("CLIENT_ID", "") or os.getenv("CLIENT_ID", "")
+CLIENT_SECRET = st.secrets.get("CLIENT_SECRET", "") or os.getenv("CLIENT_SECRET", "")
 # --- 会社設定 ---
 COMPANY_CONFIG = {
     "フリー株式会社": {
